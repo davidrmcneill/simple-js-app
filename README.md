@@ -1,1 +1,1 @@
-This is my first attempt using javascript in my development project. This is a simple project.
+This Pokedex app displays the name, height and type for three different Pokemon.  
