@@ -1,0 +1,20 @@
+:root {
+    --primary-color: #357b70;
+    --secondary-color: #e0b354;
+    --dark-grey: #2b2b2b;
+    --font-family: 'lato', sans-serif;
+    --h-font-weight: 700;
+}
+
+a {
+    color: var(--primary-color);
+}
+  
+
+body{
+    background-color: floralwhite;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.6;
+}
