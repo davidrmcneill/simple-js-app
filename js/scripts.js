@@ -1,3 +1,5 @@
+let pokemonRepository = (function () {
+
 let pokemonList = [
     {Name: 'Abra', Height: .9, Type: ['Normal','Rock']},
     {Name: 'Arbok', Height: 3.5, Type: ['Rock','Ghost']},
@@ -21,4 +23,24 @@ let pokemonList = [
 //  });
 
  // arrow function
-pokemonList.forEach( (pokemon) => document.write(pokemon.Name + ' is ' + pokemon.Height + ' tall and is ' + pokemon.Type[0] + ', ' + pokemon.Type[1] + '<br>'));
+// pokemonList.forEach( (pokemon) => document.write(pokemon.Name + ' is ' + pokemon.Height + ' tall and is ' + pokemon.Type[0] + ', ' + pokemon.Type[1] + '<br>'));
+
+function getAll() {
+    return pokemonList;
+}
+
+function add(pokemon) {
+    pokemonList.push(pokemon);
+}
+
+return {
+    add: add,
+    getAll: getAll
+};
+
+})();
+
+
+pokemonRepository.getAll().forEach(function(pokemon) {
+        document.write(pokemon.Name + ' is ' + pokemon.Height + ' tall and is ' + pokemon.Type[0] + ', ' + pokemon.Type[1] + '<br>')
+     });
