@@ -29,12 +29,29 @@ function getAll() {
     return pokemonList;
 }
 
+function addListItem(pokemon) {
+    let pokemonDiv = $('.pokemon-list');
+    let listItem = $('<li class="group-list-item"></li>');
+    let button = $(`<button type="button">${pokemon.Name}</button>`);
+    listItem.append(button);
+    pokemonDiv.append(listItem);
+    button.on('click', function() {
+      showDetails(pokemon);
+    });
+}
+
+
+function showDetails(pokemon) {
+console.log(pokemon);
+}
+
 function add(pokemon) {
     pokemonList.push(pokemon);
 }
 
 return {
     add: add,
+    addListItem: addListItem,
     getAll: getAll
 };
 
@@ -42,5 +59,6 @@ return {
 
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-        document.write(pokemon.Name + ' is ' + pokemon.Height + ' tall and is ' + pokemon.Type[0] + ', ' + pokemon.Type[1] + '<br>')
+    document.write(pokemon.Name);
+    pokemonRepository.addListItem(pokemon);
      });
