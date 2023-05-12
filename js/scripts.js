@@ -30,16 +30,25 @@ function getAll() {
 }
 
 function addListItem(pokemon) {
-    let pokemonDiv = $('.pokemon-list');
-    let listItem = $('<li class="group-list-item"></li>');
-    let button = $(`<button type="button">${pokemon.Name}</button>`);
-    listItem.append(button);
-    pokemonDiv.append(listItem);
-    button.on('click', function() {
+    
+    let pokemonListItems = document.querySelector(".pokemon-list");
+    pokemonListItems.classList.add("list-group");
+    let listItem = document.createElement("li");
+    listItem.classList.add("list-group-item");
+
+    let button = document.createElement("button");
+    button.classList.add("btn-block");
+    button.classList.add("btn-lg");
+    button.classList.add("btn-primary");
+    button.innerText = pokemon.Name;
+    button.classList.add("pokemonButton");
+    listItem.appendChild(button);
+    pokemonListItems.appendChild(listItem);
+
+    button.addEventListener("click", function () {
       showDetails(pokemon);
     });
-}
-
+  }
 
 function showDetails(pokemon) {
 console.log(pokemon);
@@ -59,6 +68,6 @@ return {
 
 
 pokemonRepository.getAll().forEach(function(pokemon) {
-    document.write(pokemon.Name);
+    // document.write(pokemon.Name);
     pokemonRepository.addListItem(pokemon);
      });
