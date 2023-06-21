@@ -134,6 +134,10 @@ let pokemonRepository = (function () {
         showDialog('Confirm action', 'Are you sure you want to do this?');
     });
 
+    document.querySelector('.modal-close')?.addEventListener('click', () => {
+        closeModal();
+    });
+
     let dialogPromiseReject; // This can be set later, by showDialog
 
     function hideModal() {
@@ -143,6 +147,15 @@ let pokemonRepository = (function () {
             dialogPromiseReject();
             dialogPromiseReject = null;
           }
+    }
+
+    function closeModal() {
+        let modalContainer = document.querySelector('#modal-container');
+        modalContainer.classList.remove('is-visible');
+        // if (dialogPromiseReject) {
+        //     dialogPromiseReject();
+        //     dialogPromiseReject = null;
+        //   }
     }
 
     function showDialog(title, text) {
